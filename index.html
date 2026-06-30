@@ -454,20 +454,8 @@ Open My Surprise 🎁
 <div class="envelope" onclick="openEnvelope()">
     <div class="back"></div>
     
-    <!-- Move your text inside this letter div -->
     <div class="letter">
-        <div id="typedLetter">
-            Dear Baby ❤️,<br><br>
-            Happy Birthday to My truly special person, My Baby, My Love ❤️! 🎂<br><br>
-            You are Sweet, Loyal, My love, and I am so grateful to have you in my life.<br>
-            You bring so much warmth and sweetness into my life. Every moment with you is precious.<br><br>
-            On your special day, I wish you all the happiness, love, and joy that you deserve.<br>
-            May this year bring you countless beautiful and wonderful memories (of course with me also 🙃).<br><br>
-            Another year older, but definitely not wiser! 😄<br><br>
-            So glad I get to be goofy and crazy with you. Once again... ❤️ Happy Birthday Baby ❤️ 🧑‍🤝‍🧑👑<br><br>
-            Here to celebrating you today and always! 🎉 With love and best wishes,<br><br>
-            Your most precious & favourite person ❤️ Arnab ❤️
-        </div>
+        <div id="typedLetter"></div>
     </div>
 
     <div class="front"></div>
@@ -585,28 +573,9 @@ line-height:1.8;
 </footer>
 
 <script>
-    const message = `Dear Baby,
-
-Happy Birthday to My truly special person, My Baby, My Love ❤️🎂
-
-You are Sweet, Loyal, My Love, and I'm so grateful to have you in my life.
-
-You bring so much warmth and sweetness into my life. Every moment with you is precious.
-
-On your special day, I wish you all the happiness, love, and joy that you deserve.
-
-May this year bring you countless beautiful moments and wonderful memories (of course with me also 🙃).
-
-Another year older, but definitely not wiser!
-
-So glad I get to be goofy and crazy with you.
-
-Happy Birthday Baby! 🎉❤️
-
-With Love,
-
-Your most precious & favourite person ❤️
-Arnab`;
+    // Look for a variable that holds your message text (it might be called 'text', 'message', or 'words')
+const birthdayMessage = "Dear Baby ❤️,\n\nHappy Birthday to My truly special person, My Baby, My Love ❤️! 🎂\n\nYou are Sweet, Loyal, My love, and I am so grateful to have you in my life. You bring so much warmth and sweetness into my life. Every moment with you is precious.\n\nOn your special day, I wish you all the happiness, love, and joy that you deserve. May this year bring you countless beautiful and wonderful memories (of course with me also 🙃).\n\nAnother year older, but definitely not wiser! 😄\n\nSo glad I get to be goofy and crazy with you. Once again... ❤️ Happy Birthday Baby ❤️ 🧑‍🤝‍🧑👑\n\nHere to celebrating you today and always! 🎉 With love and best wishes,\n\nYour most precious & favourite person ❤️ Arnab ❤️";
+    
 
 let started=false;
 

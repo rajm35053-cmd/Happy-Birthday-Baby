@@ -9,6 +9,93 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+    #loveLetter{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:80px 20px;
+}
+
+.envelope{
+position:relative;
+width:320px;
+height:220px;
+cursor:pointer;
+}
+
+.back{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff6b81;
+border-radius:10px;
+}
+
+.front{
+position:absolute;
+bottom:0;
+width:100%;
+height:110px;
+background:#ff4d6d;
+clip-path:polygon(0 0,50% 70%,100% 0,100% 100%,0 100%);
+}
+
+.top{
+position:absolute;
+top:0;
+width:100%;
+height:110px;
+background:#ff758f;
+transform-origin:top;
+transition:1s;
+clip-path:polygon(0 0,50% 100%,100% 0);
+}
+
+.letter{
+position:absolute;
+left:20px;
+top:30px;
+width:280px;
+height:170px;
+background:white;
+border-radius:8px;
+padding:20px;
+overflow:auto;
+transform:translateY(50px);
+transition:1s;
+z-index:2;
+}
+
+.heart{
+position:absolute;
+top:85px;
+left:50%;
+transform:translateX(-50%);
+font-size:35px;
+z-index:5;
+}
+
+.open .top{
+transform:rotateX(180deg);
+}
+
+.open .letter{
+transform:translateY(-120px);
+}
+
+#typedLetter{
+white-space:pre-line;
+font-size:16px;
+line-height:1.7;
+color:#444;
+}
+
+#tapText{
+margin-top:20px;
+color:white;
+font-size:18px;
+}
 #cakeContainer{
 text-align:center;
 margin:80px 0;
@@ -369,7 +456,27 @@ Open My Surprise 🎁
 <h2 class="title">💌 A Letter For My Baby</h2>
 
 <div class="letter">
+<section id="loveLetter">
 
+<div class="envelope" onclick="openEnvelope()">
+
+<div class="back"></div>
+
+<div class="letter">
+<div id="typedLetter"></div>
+</div>
+
+<div class="front"></div>
+
+<div class="top"></div>
+
+<div class="heart">❤️</div>
+
+</div>
+
+<p id="tapText">💌 Tap the envelope, Baby</p>
+
+</section>
 Dear Baby ❤️,
 
 Happy Birthday to My truly special person,
@@ -529,6 +636,66 @@ line-height:1.8;
 </footer>
 
 <script>
+    const message = `Dear Baby,
+
+Happy Birthday to My truly special person, My Baby, My Love ❤️🎂
+
+You are Sweet, Loyal, My Love, and I'm so grateful to have you in my life.
+
+You bring so much warmth and sweetness into my life. Every moment with you is precious.
+
+On your special day, I wish you all the happiness, love, and joy that you deserve.
+
+May this year bring you countless beautiful moments and wonderful memories (of course with me also 🙃).
+
+Another year older, but definitely not wiser!
+
+So glad I get to be goofy and crazy with you.
+
+Happy Birthday Baby! 🎉❤️
+
+With Love,
+
+Your most precious & favourite person ❤️
+Arnab`;
+
+let started=false;
+
+function openEnvelope(){
+
+if(started) return;
+
+started=true;
+
+document.querySelector(".envelope").classList.add("open");
+
+setTimeout(typeLetter,900);
+
+}
+
+function typeLetter(){
+
+let i=0;
+
+let speed=35;
+
+function typing(){
+
+if(i<message.length){
+
+document.getElementById("typedLetter").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(typing,speed);
+
+}
+
+}
+
+typing();
+
+}
 let blown = 0;
 
 function blow(candle){

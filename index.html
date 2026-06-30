@@ -443,7 +443,34 @@ Forever.
 <footer>
 
 Made with ❤️ by <b>Arnab</b>
+<section style="text-align:center;padding:80px 20px;">
 
+<h2 class="title">💖 One More Surprise 💖</h2>
+
+<button onclick="showReasons()">
+❤️ Click Me Baby ❤️
+</button>
+
+<div id="reasonBox" style="
+display:none;
+margin-top:40px;
+padding:30px;
+background:rgba(255,255,255,.2);
+border-radius:20px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+font-size:22px;
+line-height:1.8;
+">
+
+<h2>I Love You Because... ❤️</h2>
+
+<p id="reasonText"></p>
+
+</div>
+
+</section>
 </footer>
 
 <script>
@@ -790,6 +817,51 @@ setTimeout(()=>{
 console.log("Happy Birthday Baby ❤️");
 
 },5000);
+    const reasons = [
+
+"You make me smile every day 😊",
+
+"You are my safe place ❤️",
+
+"Your laugh is my favorite sound 😍",
+
+"You care for me like no one else 💖",
+
+"You always understand me 🥹",
+
+"You make every moment special ✨",
+
+"You are beautiful inside and out 🌹",
+
+"You are my best friend ❤️",
+
+"You are my happiness ☀️",
+
+"And because... You are YOU ❤️"
+
+];
+
+let reasonIndex = 0;
+
+function showReasons(){
+
+document.getElementById("reasonBox").style.display="block";
+
+document.getElementById("reasonText").innerHTML=reasons[reasonIndex];
+
+reasonIndex++;
+
+if(reasonIndex>=reasons.length){
+
+reasonIndex=0;
+
+}
+
+confetti();
+
+fireworks();
+
+}
 </script>
 
 </body>

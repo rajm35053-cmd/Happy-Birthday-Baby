@@ -289,3 +289,681 @@ Open My Surprise 🎁
 </button>
 
 </div>
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+<h2 class="title">📸 Our Beautiful Memories ❤️</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg" alt="">
+<img src="photo2.jpg" alt="">
+<img src="photo3.jpg" alt="">
+<img src="photo4.jpg" alt="">
+<img src="photo5.jpg" alt="">
+<img src="photo6.jpg" alt="">
+
+</div>
+
+</section>
+
+<!-- ================= LOVE LETTER ================= -->
+
+<section>
+
+<h2 class="title">💌 A Letter For My Baby</h2>
+
+<div class="letter">
+
+<p><b>Dear Baby ❤️,</b></p>
+
+<br>
+
+<p>
+
+Happy Birthday to My truly special person,
+
+My Baby,
+
+My Love ❤️! 🎂
+
+</p>
+
+<br>
+
+<p>
+
+You are Sweet, Loyal, My love,
+
+and I'm so grateful to have you in my life.
+
+</p>
+
+<br>
+
+<p>
+
+You bring so much warmth and sweetness into my life.
+
+Every moment with you is precious.
+
+</p>
+
+<br>
+
+<p>
+
+On your special day,
+
+I wish you all the happiness,
+
+love,
+
+and joy that you deserve.
+
+May this year bring you countless beautiful moments
+
+and wonderful memories
+
+(of course with me also 🙃).
+
+</p>
+
+<br>
+
+<p>
+
+Another year older,
+
+but definitely not wiser! 😄
+
+So glad I get to be goofy and crazy with you.
+
+</p>
+
+<br>
+
+<p>
+
+Once again...
+
+❤️ Happy Birthday Baby ❤️
+
+🎊🎂👸🏻
+
+</p>
+
+<br>
+
+<p>
+
+Here's to celebrating you today and always! 🎉
+
+</p>
+
+<br>
+
+<p>
+
+With love and best wishes,
+
+</p>
+
+<h3 style="margin-top:20px;">
+
+Your most precious & favourite person 💝
+
+<br><br>
+
+❤️ Arnab ❤️
+
+</h3>
+
+</div>
+
+</section>
+<!-- ================= COUNTDOWN ================= -->
+
+<section id="countdown">
+
+<h2 class="title">⏳ Countdown to Your Birthday</h2>
+
+<div class="countdown">
+
+<div class="box">
+<div id="days">0</div>
+<span>Days</span>
+</div>
+
+<div class="box">
+<div id="hours">0</div>
+<span>Hours</span>
+</div>
+
+<div class="box">
+<div id="minutes">0</div>
+<span>Minutes</span>
+</div>
+
+<div class="box">
+<div id="seconds">0</div>
+<span>Seconds</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SURPRISE ================= -->
+
+<section>
+
+<h2 class="title">🎁 One Last Surprise</h2>
+
+<div style="text-align:center;">
+
+<button onclick="showLove()">
+Click Here Baby ❤️
+</button>
+
+</div>
+
+<div id="surprise">
+
+<h1>I Love You Forever ❤️</h1>
+
+<h2>Happy Birthday My Baby 🎂</h2>
+
+<p style="margin-top:20px;font-size:24px;">
+
+No matter what happens...
+
+No matter where life takes us...
+
+I'll always choose YOU.
+
+Always.
+
+Forever.
+
+❤️
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ by <b>Arnab</b>
+
+</footer>
+
+<script>
+
+// Countdown
+
+const birthday = new Date("July 16, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = birthday - now;
+
+const d = Math.floor(distance/(1000*60*60*24));
+
+const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const m = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const s = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML=d;
+document.getElementById("hours").innerHTML=h;
+document.getElementById("minutes").innerHTML=m;
+document.getElementById("seconds").innerHTML=s;
+
+},1000);
+
+
+// Floating Hearts
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
+
+}
+
+setInterval(createHeart,400);
+
+
+// Surprise
+
+function showLove(){
+
+document.getElementById("surprise").style.display="block";
+
+window.scrollTo({
+
+top:document.body.scrollHeight,
+
+behavior:"smooth"
+
+});
+
+alert("Happy Birthday Baby ❤️");
+
+}
+
+</script>
+
+</body>
+
+</html>
+/* ================= BACKGROUND MUSIC ================= */
+
+// Replace "music.mp3" with your own song file
+const bgMusic = new Audio("music.mp3");
+bgMusic.loop = true;
+
+const musicBtn = document.createElement("button");
+musicBtn.innerHTML = "🎵 Play Music";
+musicBtn.style.position = "fixed";
+musicBtn.style.bottom = "20px";
+musicBtn.style.right = "20px";
+musicBtn.style.zIndex = "9999";
+musicBtn.style.padding = "12px 20px";
+musicBtn.style.border = "none";
+musicBtn.style.borderRadius = "30px";
+musicBtn.style.cursor = "pointer";
+
+document.body.appendChild(musicBtn);
+
+musicBtn.onclick = function () {
+    bgMusic.play();
+    musicBtn.innerHTML = "❤️ Music Playing";
+};
+
+/* ================= CONFETTI ================= */
+
+function confetti() {
+
+    for (let i = 0; i < 80; i++) {
+
+        const c = document.createElement("div");
+
+        c.innerHTML = "🎉";
+
+        c.style.position = "fixed";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.top = "-20px";
+        c.style.fontSize = (18 + Math.random() * 20) + "px";
+        c.style.transition = "6s linear";
+
+        document.body.appendChild(c);
+
+        setTimeout(() => {
+            c.style.top = "110vh";
+        }, 50);
+
+        setTimeout(() => {
+            c.remove();
+        }, 6000);
+    }
+
+}
+
+/* ================= FIREWORKS ================= */
+
+function fireworks(){
+
+for(let i=0;i<40;i++){
+
+let star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=(40+Math.random()*20)+"vw";
+
+star.style.top=(20+Math.random()*30)+"vh";
+
+star.style.fontSize=(20+Math.random()*25)+"px";
+
+star.style.opacity="0";
+
+star.style.transition="all 1s";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.style.opacity="1";
+
+star.style.transform="scale(2) rotate(360deg)";
+
+},50);
+
+setTimeout(()=>{
+
+star.remove();
+
+},1500);
+
+}
+
+}
+
+/* ================= Surprise Upgrade ================= */
+
+function showLove(){
+
+document.getElementById("surprise").style.display="block";
+
+window.scrollTo({
+
+top:document.body.scrollHeight,
+
+behavior:"smooth"
+
+});
+
+confetti();
+
+fireworks();
+
+alert("❤️ Happy Birthday Baby ❤️");
+
+}
+  /* ================= BACKGROUND MUSIC ================= */
+
+// Replace "music.mp3" with your own song file
+const bgMusic = new Audio("music.mp3");
+bgMusic.loop = true;
+
+const musicBtn = document.createElement("button");
+musicBtn.innerHTML = "🎵 Play Music";
+musicBtn.style.position = "fixed";
+musicBtn.style.bottom = "20px";
+musicBtn.style.right = "20px";
+musicBtn.style.zIndex = "9999";
+musicBtn.style.padding = "12px 20px";
+musicBtn.style.border = "none";
+musicBtn.style.borderRadius = "30px";
+musicBtn.style.cursor = "pointer";
+
+document.body.appendChild(musicBtn);
+
+musicBtn.onclick = function () {
+    bgMusic.play();
+    musicBtn.innerHTML = "❤️ Music Playing";
+};
+
+/* ================= CONFETTI ================= */
+
+function confetti() {
+
+    for (let i = 0; i < 80; i++) {
+
+        const c = document.createElement("div");
+
+        c.innerHTML = "🎉";
+
+        c.style.position = "fixed";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.top = "-20px";
+        c.style.fontSize = (18 + Math.random() * 20) + "px";
+        c.style.transition = "6s linear";
+
+        document.body.appendChild(c);
+
+        setTimeout(() => {
+            c.style.top = "110vh";
+        }, 50);
+
+        setTimeout(() => {
+            c.remove();
+        }, 6000);
+    }
+
+}
+
+/* ================= FIREWORKS ================= */
+
+function fireworks(){
+
+for(let i=0;i<40;i++){
+
+let star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=(40+Math.random()*20)+"vw";
+
+star.style.top=(20+Math.random()*30)+"vh";
+
+star.style.fontSize=(20+Math.random()*25)+"px";
+
+star.style.opacity="0";
+
+star.style.transition="all 1s";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.style.opacity="1";
+
+star.style.transform="scale(2) rotate(360deg)";
+
+},50);
+
+setTimeout(()=>{
+
+star.remove();
+
+},1500);
+
+}
+
+}
+
+/* ================= Surprise Upgrade ================= */
+
+function showLove(){
+
+document.getElementById("surprise").style.display="block";
+
+window.scrollTo({
+
+top:document.body.scrollHeight,
+
+behavior:"smooth"
+
+});
+
+confetti();
+
+fireworks();
+
+alert("❤️ Happy Birthday Baby ❤️");
+
+}
+  /* ================= PREMIUM LOADER ================= */
+
+window.addEventListener("load", function(){
+
+const loader=document.createElement("div");
+
+loader.id="loader";
+
+loader.style.position="fixed";
+loader.style.left="0";
+loader.style.top="0";
+loader.style.width="100%";
+loader.style.height="100%";
+loader.style.background="#ff4f91";
+loader.style.display="flex";
+loader.style.justifyContent="center";
+loader.style.alignItems="center";
+loader.style.flexDirection="column";
+loader.style.color="white";
+loader.style.fontSize="32px";
+loader.style.fontFamily="Poppins";
+loader.style.zIndex="999999";
+
+loader.innerHTML="❤️ Loading Birthday Surprise... ❤️";
+
+document.body.appendChild(loader);
+
+setTimeout(()=>{
+loader.style.opacity="0";
+loader.style.transition="1s";
+setTimeout(()=>{
+loader.remove();
+},1000);
+},2500);
+
+});
+
+
+/* ================= ROSE PETALS ================= */
+
+function createRose(){
+
+const rose=document.createElement("div");
+
+rose.innerHTML="🌹";
+
+rose.style.position="fixed";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.top="-40px";
+
+rose.style.fontSize=(20+Math.random()*25)+"px";
+
+rose.style.transition="12s linear";
+
+rose.style.zIndex="999";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>{
+
+rose.style.top="110vh";
+
+rose.style.transform="rotate(720deg)";
+
+},50);
+
+setTimeout(()=>{
+
+rose.remove();
+
+},12000);
+
+}
+
+setInterval(createRose,900);
+
+
+/* ================= CURSOR SPARKLES ================= */
+
+document.addEventListener("mousemove",function(e){
+
+const star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=e.clientX+"px";
+
+star.style.top=e.clientY+"px";
+
+star.style.pointerEvents="none";
+
+star.style.transition=".8s";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.style.opacity="0";
+
+star.style.transform="scale(2)";
+
+},50);
+
+setTimeout(()=>{
+
+star.remove();
+
+},800);
+
+});
+
+
+/* ================= TYPEWRITER EFFECT ================= */
+
+const letter=document.querySelector(".letter");
+
+if(letter){
+
+const original=letter.innerHTML;
+
+letter.innerHTML="";
+
+let i=0;
+
+function type(){
+
+if(i<original.length){
+
+letter.innerHTML+=original.charAt(i);
+
+i++;
+
+setTimeout(type,12);
+
+}
+
+}
+
+setTimeout(type,1200);
+
+}
+
+
+/* ================= FINAL MESSAGE ================= */
+
+setTimeout(()=>{
+
+console.log("Happy Birthday Baby ❤️");
+
+},5000);

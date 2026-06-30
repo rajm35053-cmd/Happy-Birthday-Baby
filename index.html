@@ -502,6 +502,85 @@ Made with ❤️ by <b>Arnab</b>
 </footer>
 
 <script>
+<!-- ================= COUNTDOWN ================= -->
+
+<section id="countdown">
+
+<h2 class="title">⏳ Countdown to Your Birthday</h2>
+
+<div class="countdown">
+
+<div class="box">
+<div id="days">0</div>
+<span>Days</span>
+</div>
+
+<div class="box">
+<div id="hours">0</div>
+<span>Hours</span>
+</div>
+
+<div class="box">
+<div id="minutes">0</div>
+<span>Minutes</span>
+</div>
+
+<div class="box">
+<div id="seconds">0</div>
+<span>Seconds</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SURPRISE ================= -->
+
+<section>
+
+<h2 class="title">🎁 One Last Surprise</h2>
+
+<div style="text-align:center;">
+
+<button onclick="showLove()">
+Click Here Baby ❤️
+</button>
+
+</div>
+
+<div id="surprise">
+
+<h1>I Love You Forever ❤️</h1>
+
+<h2>Happy Birthday My Baby 🎂</h2>
+
+<p style="margin-top:20px;font-size:24px;">
+
+No matter what happens...
+
+No matter where life takes us...
+
+I'll always choose YOU.
+
+Always.
+
+Forever.
+
+❤️
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ by <b>Arnab</b>
+
+</footer>
+
+<script>
 
 // Countdown
 
@@ -581,102 +660,62 @@ alert("Happy Birthday Baby ❤️");
 </body>
 
 </html>
-/* ================= BACKGROUND MUSIC ================= */
+// Countdown
 
-// Replace "music.mp3" with your own song file
-const bgMusic = new Audio("music.mp3");
-bgMusic.loop = true;
+const birthday = new Date("July 16, 2026 00:00:00").getTime();
 
-const musicBtn = document.createElement("button");
-musicBtn.innerHTML = "🎵 Play Music";
-musicBtn.style.position = "fixed";
-musicBtn.style.bottom = "20px";
-musicBtn.style.right = "20px";
-musicBtn.style.zIndex = "9999";
-musicBtn.style.padding = "12px 20px";
-musicBtn.style.border = "none";
-musicBtn.style.borderRadius = "30px";
-musicBtn.style.cursor = "pointer";
+setInterval(function(){
 
-document.body.appendChild(musicBtn);
+const now = new Date().getTime();
 
-musicBtn.onclick = function () {
-    bgMusic.play();
-    musicBtn.innerHTML = "❤️ Music Playing";
-};
+const distance = birthday - now;
 
-/* ================= CONFETTI ================= */
+const d = Math.floor(distance/(1000*60*60*24));
 
-function confetti() {
+const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-    for (let i = 0; i < 80; i++) {
+const m = Math.floor((distance%(1000*60*60))/(1000*60));
 
-        const c = document.createElement("div");
+const s = Math.floor((distance%(1000*60))/1000);
 
-        c.innerHTML = "🎉";
+document.getElementById("days").innerHTML=d;
+document.getElementById("hours").innerHTML=h;
+document.getElementById("minutes").innerHTML=m;
+document.getElementById("seconds").innerHTML=s;
 
-        c.style.position = "fixed";
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.top = "-20px";
-        c.style.fontSize = (18 + Math.random() * 20) + "px";
-        c.style.transition = "6s linear";
+},1000);
 
-        document.body.appendChild(c);
 
-        setTimeout(() => {
-            c.style.top = "110vh";
-        }, 50);
+// Floating Hearts
 
-        setTimeout(() => {
-            c.remove();
-        }, 6000);
-    }
+function createHeart(){
 
-}
+const heart=document.createElement("div");
 
-/* ================= FIREWORKS ================= */
+heart.className="heart";
 
-function fireworks(){
+heart.innerHTML="❤️";
 
-for(let i=0;i<40;i++){
+heart.style.left=Math.random()*100+"vw";
 
-let star=document.createElement("div");
+heart.style.fontSize=(20+Math.random()*30)+"px";
 
-star.innerHTML="✨";
+heart.style.animationDuration=(6+Math.random()*5)+"s";
 
-star.style.position="fixed";
-
-star.style.left=(40+Math.random()*20)+"vw";
-
-star.style.top=(20+Math.random()*30)+"vh";
-
-star.style.fontSize=(20+Math.random()*25)+"px";
-
-star.style.opacity="0";
-
-star.style.transition="all 1s";
-
-document.body.appendChild(star);
+document.body.appendChild(heart);
 
 setTimeout(()=>{
 
-star.style.opacity="1";
+heart.remove();
 
-star.style.transform="scale(2) rotate(360deg)";
-
-},50);
-
-setTimeout(()=>{
-
-star.remove();
-
-},1500);
+},10000);
 
 }
 
-}
+setInterval(createHeart,400);
 
-/* ================= Surprise Upgrade ================= */
+
+// Surprise
 
 function showLove(){
 
@@ -690,130 +729,10 @@ behavior:"smooth"
 
 });
 
-confetti();
-
-fireworks();
-
-alert("❤️ Happy Birthday Baby ❤️");
+alert("Happy Birthday Baby ❤️");
 
 }
-  /* ================= BACKGROUND MUSIC ================= */
-
-// Replace "music.mp3" with your own song file
-const bgMusic = new Audio("music.mp3");
-bgMusic.loop = true;
-
-const musicBtn = document.createElement("button");
-musicBtn.innerHTML = "🎵 Play Music";
-musicBtn.style.position = "fixed";
-musicBtn.style.bottom = "20px";
-musicBtn.style.right = "20px";
-musicBtn.style.zIndex = "9999";
-musicBtn.style.padding = "12px 20px";
-musicBtn.style.border = "none";
-musicBtn.style.borderRadius = "30px";
-musicBtn.style.cursor = "pointer";
-
-document.body.appendChild(musicBtn);
-
-musicBtn.onclick = function () {
-    bgMusic.play();
-    musicBtn.innerHTML = "❤️ Music Playing";
-};
-
-/* ================= CONFETTI ================= */
-
-function confetti() {
-
-    for (let i = 0; i < 80; i++) {
-
-        const c = document.createElement("div");
-
-        c.innerHTML = "🎉";
-
-        c.style.position = "fixed";
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.top = "-20px";
-        c.style.fontSize = (18 + Math.random() * 20) + "px";
-        c.style.transition = "6s linear";
-
-        document.body.appendChild(c);
-
-        setTimeout(() => {
-            c.style.top = "110vh";
-        }, 50);
-
-        setTimeout(() => {
-            c.remove();
-        }, 6000);
-    }
-
-}
-
-/* ================= FIREWORKS ================= */
-
-function fireworks(){
-
-for(let i=0;i<40;i++){
-
-let star=document.createElement("div");
-
-star.innerHTML="✨";
-
-star.style.position="fixed";
-
-star.style.left=(40+Math.random()*20)+"vw";
-
-star.style.top=(20+Math.random()*30)+"vh";
-
-star.style.fontSize=(20+Math.random()*25)+"px";
-
-star.style.opacity="0";
-
-star.style.transition="all 1s";
-
-document.body.appendChild(star);
-
-setTimeout(()=>{
-
-star.style.opacity="1";
-
-star.style.transform="scale(2) rotate(360deg)";
-
-},50);
-
-setTimeout(()=>{
-
-star.remove();
-
-},1500);
-
-}
-
-}
-
-/* ================= Surprise Upgrade ================= */
-
-function showLove(){
-
-document.getElementById("surprise").style.display="block";
-
-window.scrollTo({
-
-top:document.body.scrollHeight,
-
-behavior:"smooth"
-
-});
-
-confetti();
-
-fireworks();
-
-alert("❤️ Happy Birthday Baby ❤️");
-
-}
-  /* ================= PREMIUM LOADER ================= */
+/* ================= PREMIUM LOADER ================= */
 
 window.addEventListener("load", function(){
 
@@ -967,3 +886,8 @@ setTimeout(()=>{
 console.log("Happy Birthday Baby ❤️");
 
 },5000);
+</script>
+
+</body>
+
+</html>

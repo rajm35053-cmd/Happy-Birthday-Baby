@@ -9,7 +9,61 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+#cakeContainer{
+text-align:center;
+margin:80px 0;
+}
 
+#cake{
+position:relative;
+width:220px;
+margin:auto;
+}
+
+.cake-top{
+width:220px;
+height:45px;
+background:#ffb6c1;
+border-radius:15px;
+}
+
+.cake-bottom{
+width:240px;
+height:90px;
+background:#ff69b4;
+border-radius:0 0 20px 20px;
+margin-left:-10px;
+}
+
+.candles{
+display:flex;
+justify-content:space-around;
+margin-bottom:-5px;
+}
+
+.candle{
+width:12px;
+height:45px;
+background:white;
+position:relative;
+cursor:pointer;
+}
+
+.flame{
+width:14px;
+height:18px;
+background:gold;
+border-radius:50%;
+position:absolute;
+top:-18px;
+left:-1px;
+animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
+}
 *{
 margin:0;
 padding:0;
@@ -439,6 +493,7 @@ Forever.
 </div>
 
 </section>
+    
 
 <footer>
 
@@ -474,7 +529,59 @@ line-height:1.8;
 </footer>
 
 <script>
+let blown = 0;
 
+function blow(candle){
+
+if(candle.classList.contains("done")) return;
+
+candle.classList.add("done");
+
+candle.querySelector(".flame").style.display="none";
+
+blown++;
+
+if(blown===3){
+
+document.getElementById("wishText").innerHTML =
+"🎉 Happy Birthday Baby ❤️<br>I Love You Forever 💖";
+
+confetti();
+}
+
+}
+
+function confetti(){
+
+for(let i=0;i<120;i++){
+
+let c=document.createElement("div");
+
+c.innerHTML="🎊";
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-20px";
+
+c.style.fontSize=(20+Math.random()*20)+"px";
+
+c.style.transition="5s linear";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.style.top="110vh";
+},100);
+
+setTimeout(()=>{
+c.remove();
+},5000);
+
+}
+
+}
 // Countdown
 
 const birthday = new Date("July 16, 2026 00:00:00").getTime();
@@ -863,7 +970,31 @@ fireworks();
 
 }
 </script>
+<!-- Birthday Cake -->
+<div id="cakeContainer">
+  <h2>🎂 Make a Wish Baby ❤️</h2>
 
+  <div id="cake">
+    <div class="candles">
+      <div class="candle" onclick="blow(this)">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle" onclick="blow(this)">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle" onclick="blow(this)">
+        <div class="flame"></div>
+      </div>
+    </div>
+
+    <div class="cake-top"></div>
+    <div class="cake-bottom"></div>
+  </div>
+
+  <p id="wishText">Tap all the candles to blow them out 🎉</p>
+</div>
 </body>
 
 </html>

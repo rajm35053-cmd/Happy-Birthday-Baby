@@ -502,85 +502,6 @@ Made with ❤️ by <b>Arnab</b>
 </footer>
 
 <script>
-<!-- ================= COUNTDOWN ================= -->
-
-<section id="countdown">
-
-<h2 class="title">⏳ Countdown to Your Birthday</h2>
-
-<div class="countdown">
-
-<div class="box">
-<div id="days">0</div>
-<span>Days</span>
-</div>
-
-<div class="box">
-<div id="hours">0</div>
-<span>Hours</span>
-</div>
-
-<div class="box">
-<div id="minutes">0</div>
-<span>Minutes</span>
-</div>
-
-<div class="box">
-<div id="seconds">0</div>
-<span>Seconds</span>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= SURPRISE ================= -->
-
-<section>
-
-<h2 class="title">🎁 One Last Surprise</h2>
-
-<div style="text-align:center;">
-
-<button onclick="showLove()">
-Click Here Baby ❤️
-</button>
-
-</div>
-
-<div id="surprise">
-
-<h1>I Love You Forever ❤️</h1>
-
-<h2>Happy Birthday My Baby 🎂</h2>
-
-<p style="margin-top:20px;font-size:24px;">
-
-No matter what happens...
-
-No matter where life takes us...
-
-I'll always choose YOU.
-
-Always.
-
-Forever.
-
-❤️
-
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-Made with ❤️ by <b>Arnab</b>
-
-</footer>
-
-<script>
 
 // Countdown
 
@@ -654,68 +575,102 @@ behavior:"smooth"
 alert("Happy Birthday Baby ❤️");
 
 }
+/* ================= BACKGROUND MUSIC ================= */
 
-</script>
+// Replace "music.mp3" with your own song file
+const bgMusic = new Audio("music.mp3");
+bgMusic.loop = true;
 
-</body>
+const musicBtn = document.createElement("button");
+musicBtn.innerHTML = "🎵 Play Music";
+musicBtn.style.position = "fixed";
+musicBtn.style.bottom = "20px";
+musicBtn.style.right = "20px";
+musicBtn.style.zIndex = "9999";
+musicBtn.style.padding = "12px 20px";
+musicBtn.style.border = "none";
+musicBtn.style.borderRadius = "30px";
+musicBtn.style.cursor = "pointer";
 
-</html>
-// Countdown
+document.body.appendChild(musicBtn);
 
-const birthday = new Date("July 16, 2026 00:00:00").getTime();
+musicBtn.onclick = function () {
+    bgMusic.play();
+    musicBtn.innerHTML = "❤️ Music Playing";
+};
 
-setInterval(function(){
+/* ================= CONFETTI ================= */
 
-const now = new Date().getTime();
+function confetti() {
 
-const distance = birthday - now;
+    for (let i = 0; i < 80; i++) {
 
-const d = Math.floor(distance/(1000*60*60*24));
+        const c = document.createElement("div");
 
-const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+        c.innerHTML = "🎉";
 
-const m = Math.floor((distance%(1000*60*60))/(1000*60));
+        c.style.position = "fixed";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.top = "-20px";
+        c.style.fontSize = (18 + Math.random() * 20) + "px";
+        c.style.transition = "6s linear";
 
-const s = Math.floor((distance%(1000*60))/1000);
+        document.body.appendChild(c);
 
-document.getElementById("days").innerHTML=d;
-document.getElementById("hours").innerHTML=h;
-document.getElementById("minutes").innerHTML=m;
-document.getElementById("seconds").innerHTML=s;
+        setTimeout(() => {
+            c.style.top = "110vh";
+        }, 50);
 
-},1000);
-
-
-// Floating Hearts
-
-function createHeart(){
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=(20+Math.random()*30)+"px";
-
-heart.style.animationDuration=(6+Math.random()*5)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},10000);
+        setTimeout(() => {
+            c.remove();
+        }, 6000);
+    }
 
 }
 
-setInterval(createHeart,400);
+/* ================= FIREWORKS ================= */
 
+function fireworks(){
 
-// Surprise
+for(let i=0;i<40;i++){
+
+let star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+
+star.style.left=(40+Math.random()*20)+"vw";
+
+star.style.top=(20+Math.random()*30)+"vh";
+
+star.style.fontSize=(20+Math.random()*25)+"px";
+
+star.style.opacity="0";
+
+star.style.transition="all 1s";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.style.opacity="1";
+
+star.style.transform="scale(2) rotate(360deg)";
+
+},50);
+
+setTimeout(()=>{
+
+star.remove();
+
+},1500);
+
+}
+
+}
+
+/* ================= Surprise Upgrade ================= */
 
 function showLove(){
 
@@ -729,10 +684,14 @@ behavior:"smooth"
 
 });
 
-alert("Happy Birthday Baby ❤️");
+confetti();
+
+fireworks();
+
+alert("❤️ Happy Birthday Baby ❤️");
 
 }
-/* ================= PREMIUM LOADER ================= */
+  /* ================= PREMIUM LOADER ================= */
 
 window.addEventListener("load", function(){
 

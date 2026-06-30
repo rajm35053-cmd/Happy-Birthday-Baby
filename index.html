@@ -1,389 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Baby! ❤️</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Baby ❤️</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
+text-align:center;
+color:white;
+}
 
-        body {
-            background: linear-gradient(135deg, #12030c 0%, #050104 100%);
-            color: #f5eff3;
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.container{
+padding:30px 20px;
+}
 
-        /* Ambient floating hearts background */
-        .hearts-container, .fireworks-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+h1{
+font-size:38px;
+}
 
-        .heart {
-            position: absolute;
-            bottom: -20px;
-            color: rgba(255, 77, 136, 0.45);
-            animation: floatUp 6s linear infinite;
-        }
+h2{
+font-size:28px;
+margin-bottom:20px;
+}
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(-110vh) scale(1.2) rotate(360deg); opacity: 0; }
-        }
+img{
+width:90%;
+max-width:350px;
+border-radius:20px;
+margin:15px;
+box-shadow:0 0 20px rgba(255,255,255,.4);
+}
 
-        /* Screen States */
-        .screen {
-            display: none;
-            width: 90%;
-            max-width: 800px;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 77, 136, 0.15);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 30px;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,77,136,0.05);
-            text-align: center;
-            z-index: 10;
-            animation: fadeIn 1.5s ease-in-out forwards;
-        }
+.message{
+background:rgba(255,255,255,.15);
+padding:20px;
+border-radius:20px;
+margin:20px auto;
+max-width:700px;
+font-size:18px;
+line-height:1.8;
+}
 
-        .active { display: block; }
+footer{
+margin:30px;
+font-size:22px;
+font-weight:bold;
+}
+</style>
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Typography */
-        h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            color: #ff4d88;
-            text-shadow: 0 0 15px rgba(255, 77, 136, 0.4);
-        }
-
-        h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        h2 { font-size: 2.5rem; margin-bottom: 20px; }
-
-        /* --- SCREEN 1: THE COUNTDOWN & GIFT --- */
-        .intro-text {
-            font-size: 1.1rem;
-            color: #dcbccf;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .time-box {
-            background: rgba(255, 77, 136, 0.1);
-            border: 1px solid rgba(255, 77, 136, 0.2);
-            padding: 15px;
-            border-radius: 15px;
-            min-width: 75px;
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #ff80ab;
-        }
-
-        /* Romantic Gift Box Animation */
-        .gift-scene {
-            margin-top: 40px;
-            cursor: pointer;
-        }
-
-        .gift-box {
-            font-size: 80px;
-            animation: pulseGift 1.5s infinite alternate ease-in-out;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-
-        @keyframes pulseGift {
-            0% { transform: scale(1) rotate(-3deg); filter: drop-shadow(0 0 5px rgba(255,77,136,0.3)); }
-            100% { transform: scale(1.15) rotate(3deg); filter: drop-shadow(0 0 25px rgba(255,77,136,0.8)); }
-        }
-
-        .gift-box:hover { transform: scale(1.25); }
-        .action-hint { color: #ff80ab; font-size: 0.9rem; letter-spacing: 2px; margin-top: 10px; text-transform: uppercase;}
-
-        /* --- SCREEN 2: CAKE CUTTING --- */
-        .cake-container {
-            position: relative;
-            margin: 50px auto 30px;
-            width: 200px;
-            height: 160px;
-            cursor: pointer;
-        }
-
-        .cake {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100px;
-            background: #f19cb7;
-            border-radius: 20px 20px 5px 5px;
-            box-shadow: inset 0 10px #f9c5d5, 0 10px 15px rgba(0,0,0,0.3);
-        }
-
-        .cake::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            width: 100%;
-            height: 15px;
-            background: #6d4c41; /* Chocolate layer strip */
-        }
-
-        .candle {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 40px;
-            background: linear-gradient(to right, #fff 50%, #ff80ab 50%);
-            border-radius: 4px 4px 0 0;
-        }
-
-        .flame {
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 24px;
-            background: #ff9800;
-            border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 15px #ffeb3b;
-            animation: flicker 0.6s infinite alternate;
-        }
-
-        @keyframes flicker {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-48%) scale(1.15) skewX(2deg); }
-        }
-
-        /* --- SCREEN 3: LETTERS & GALLERY --- */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 30px;
-            text-align: left;
-        }
-
-        .letter-side {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #e3d5de;
-        }
-
-        .letter-side p {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: revealLine 0.8s forwards;
-        }
-
-        @keyframes revealLine { to { opacity: 1; transform: translateY(0); } }
-
-        /* Polaroid Photo Gallery Style */
-        .gallery-side {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .polaroid {
-            background: white;
-            padding: 15px 15px 35px 15px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-            transform: rotate(-3deg);
-            transition: transform 0.5s;
-            width: 240px;
-            border-radius: 2px;
-        }
-
-        .polaroid:nth-child(2) { transform: rotate(4deg); }
-
-        .polaroid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            filter: contrast(1.05) brightness(0.95); /* Retro vibe overlay */
-        }
-
-        .polaroid:hover {
-            transform: scale(1.08) rotate(0deg);
-            z-index: 20;
-        }
-
-        /* Audio Element Hidden styling */
-        #bg-music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 77, 136, 0.3);
-            border: 1px solid #ff4d88;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            z-index: 100;
-            font-size: 0.85rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Responsive Fixes */
-        @media (max-width: 768px) {
-            .main-layout { grid-template-columns: 1fr; }
-            h1 { font-size: 2.6rem; }
-            .polaroid { width: 200px; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Ambient FX layers -->
-    <div class="hearts-container" id="hearts"></div>
-    <div class="fireworks-container" id="fireworks"></div>
+<div class="container">
 
-    <!-- Hidden Background Audio (You can swap the URL with your preferred track link) -->
-    <audio id="love-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-    <button id="bg-music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+<h1>🎂 Happy Birthday Baby ❤️</h1>
 
-    <!-- ================= SCREEN 1: TEASER, COUNTDOWN & GIFT ================= -->
-    <div class="screen active" id="screen-countdown">
-        <p class="intro-text">Her name is <strong>Nisha</strong>, but I call her <strong>Baby</strong>...</p>
-        <h1>Waiting For Her Special Day</h1>
-        
-        <div class="countdown-container">
-            <div class="time-box"><span id="days">00</span>days</div>
-            <div class="time-box"><span id="hours">00</span>hours</div>
-            <div class="time-box"><span id="mins">00</span>mins</div>
-            <div class="time-box"><span id="secs">00</span>secs</div>
-        </div>
+<h2>My Beautiful Nisha 💖</h2>
 
-        <div class="gift-scene" onclick="openGift()">
-            <div class="gift-box" id="gift-icon">🌹</div>
-            <p class="action-hint" id="gift-hint">Baby, Open Your Surprise Gift Box</p>
-        </div>
-    </div>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
 
+<div class="message">
 
-    <!-- ================= SCREEN 2: CAKE CUTTING RITUAL ================= -->
-    <div class="screen" id="screen-cake">
-        <h2>Make a Wish & Blow the Candle, Baby! 🎂</h2>
-        <p style="color: #ff80ab; font-style: italic;">Click the flame to blow it out</p>
-        
-        <div class="cake-container" onclick="blowCandle()">
-            <div class="candle">
-                <div class="flame" id="candle-flame"></div>
-            </div>
-            <div class="cake"></div>
-        </div>
-    </div>
+<p>Dear Baby, ❤️</p>
 
+<p>
+Happy Birthday to My truly special person, My Baby, My Love! 🎂❤️
+</p>
 
-    <!-- ================= SCREEN 3: LOVE LETTER & PHOTO GALLERY ================= -->
-    <div class="screen" id="screen-main">
-        <h1 style="margin-bottom: 30px;">Happy Birthday, My Nisha! 👸🏻❤️</h1>
-        
-        <div class="main-layout">
-            <!-- Left Side: Custom Letter Animation -->
-            <div class="letter-side" id="letter-content">
-                <!-- Lines are added dynamically via JS to trigger individual crisp scroll animations -->
-            </div>
+<p>
+You are Sweet, Loyal, My love, and I'm so grateful to have you in my life.
+</p>
 
-            <!-- Right Side: Beautiful Retro Polaroid Grid -->
-            <div class="gallery-side">
-                <div class="polaroid">
-                    <!-- TRICK: Just upload "nisha1.jpg" and "nisha2.jpg" to your github folder to automatically replace these placeholders! -->
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500" alt="Us">
-                </div>
-                <div class="polaroid">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=500" alt="My Love">
-                </div>
-            </div>
-        </div>
-    </div>
+<p>
+You bring so much warmth and sweetness into my life. Every moment with you is precious.
+</p>
 
-    <!-- Confetti & System Mechanics Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        const loveAudio = document.getElementById('love-audio');
-        
-        function toggleMusic() {
-            if (loveAudio.paused) {
-                loveAudio.play().catch(e => console.log("Audio play deferred until interaction"));
-                document.getElementById('bg-music-btn').innerText = "⏸ Pause Music";
-            } else {
-                loveAudio.pause();
-                document.getElementById('bg-music-btn').innerText = "🎵 Play Music";
-            }
-        }
+<p>
+On your special day, I wish you all the happiness, love, and joy that you deserve. May this year bring you countless beautiful moments and wonderful memories (of course with me also 🙃).
+</p>
 
-        // --- BACKGROUND HEARTS GENERATOR ---
-        setInterval(() => {
-            const container = document.getElementById('hearts');
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = ['❤️','💖','🌹','✨'][Math.floor(Math.random() * 4)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-            container.appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }, 3500);
+<p>
+Another year older, but definitely not wiser! So glad I get to be goofy and crazy with you.
+</p>
 
-        // --- COUNTDOWN MECHANISM (Target: July 16th) ---
-        function updateCountdown() {
-            const currentYear = new Date().getFullYear();
-            let targetDate = new Date(`July 16, ${currentYear} 00:00:00`).getTime();
-            const now = new Date().getTime();
-            
-            // If July 16 has passed this year, point countdown to next year's 16 July
-            if (targetDate - now < 0) {
-                targetDate = new Date(`July 16, ${currentYear + 1} 00:00:00`).getTime();
-            }
+<p>
+Once again Happy Birthday Baby! 🎊👸🏻
+</p>
 
-            const difference = targetDate - now;
+<p>
+Here's to celebrating you today and always! 🎉❤️
+</p>
 
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
+<p>
+With love and best wishes,<br>
+Your most precious & favourite person 💝
+</p>
 
-            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
-            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
-            document.getElementById('mins').innerText = m < 10 ? '0' + m : m;
-            document.getElementById('secs').innerText = s < 10 ? '0' + s : s;
-        }
-        setInterval(updateCountdown,Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+</div>
+
+<footer>
+Forever Yours ❤️<br>
+Arnab
+</footer>
+
+</div>
+
+</body>
+</html>

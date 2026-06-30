@@ -3,116 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Baby ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
 margin:0;
 padding:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
-text-align:center;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff5f9e,#ffb6d9,#ffd6e8);
+overflow-x:hidden;
 color:white;
 }
 
-.container{
-padding:30px 20px;
+/* Floating Hearts */
+
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:float 10s linear infinite;
+opacity:.8;
+pointer-events:none;
 }
 
-h1{
-font-size:38px;
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
 }
 
-h2{
-font-size:28px;
-margin-bottom:20px;
-}
+/* Hero */
 
-img{
-width:90%;
-max-width:350px;
-border-radius:20px;
-margin:15px;
-box-shadow:0 0 20px rgba(255,255,255,.4);
-}
-
-.message{
-background:rgba(255,255,255,.15);
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
 padding:20px;
-border-radius:20px;
-margin:20px auto;
-max-width:700px;
+}
+
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+text-shadow:0 0 20px #ff0077;
+animation:glow 2s infinite alternate;
+}
+
+.hero h2{
+margin-top:20px;
+font-size:28px;
+font-weight:300;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px #fff;
+}
+
+to{
+text-shadow:0 0 30px #ff0088;
+}
+
+}
+
+button{
+
+margin-top:40px;
+padding:18px 40px;
 font-size:18px;
-line-height:1.8;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff2d75;
+cursor:pointer;
+transition:.4s;
+font-weight:bold;
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+/* Sections */
+
+section{
+
+padding:80px 20px;
+
+}
+
+.title{
+
+font-size:45px;
+
+text-align:center;
+
+margin-bottom:40px;
+
+font-family:'Great Vibes',cursive;
+
+}
+
+/* Gallery */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:0 0 20px rgba(255,255,255,.4);
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Letter */
+
+.letter{
+
+max-width:900px;
+
+margin:auto;
+
+background:rgba(255,255,255,.15);
+
+padding:40px;
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+font-size:20px;
+
+line-height:2;
+
+}
+
+/* Countdown */
+
+.countdown{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.box{
+
+background:white;
+
+color:#ff2d75;
+
+padding:20px;
+
+width:120px;
+
+border-radius:20px;
+
+font-size:40px;
+
+font-weight:bold;
+
+}
+
+.box span{
+
+display:block;
+
+font-size:18px;
+
+margin-top:10px;
+
+}
+
+/* Surprise */
+
+#surprise{
+
+display:none;
+
+font-size:40px;
+
+text-align:center;
+
+padding:80px 20px;
+
+animation:fade 2s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
 }
 
 footer{
-margin:30px;
+
+padding:50px;
+
+text-align:center;
+
 font-size:22px;
-font-weight:bold;
+
 }
+
 </style>
 
 </head>
+
 <body>
 
-<div class="container">
+<div id="hearts"></div>
 
-<h1>🎂 Happy Birthday Baby ❤️</h1>
+<div class="hero">
 
-<h2>My Beautiful Nisha 💖</h2>
+<h1>Happy Birthday Baby ❤️</h1>
 
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-<img src="photo5.jpg">
-<img src="photo6.jpg">
+<h2>To My Beautiful Nisha 💖</h2>
 
-<div class="message">
-
-<p>Dear Baby, ❤️</p>
-
-<p>
-Happy Birthday to My truly special person, My Baby, My Love! 🎂❤️
-</p>
-
-<p>
-You are Sweet, Loyal, My love, and I'm so grateful to have you in my life.
-</p>
-
-<p>
-You bring so much warmth and sweetness into my life. Every moment with you is precious.
-</p>
-
-<p>
-On your special day, I wish you all the happiness, love, and joy that you deserve. May this year bring you countless beautiful moments and wonderful memories (of course with me also 🙃).
-</p>
-
-<p>
-Another year older, but definitely not wiser! So glad I get to be goofy and crazy with you.
-</p>
-
-<p>
-Once again Happy Birthday Baby! 🎊👸🏻
-</p>
-
-<p>
-Here's to celebrating you today and always! 🎉❤️
-</p>
-
-<p>
-With love and best wishes,<br>
-Your most precious & favourite person 💝
-</p>
+<button onclick="document.getElementById('gallery').scrollIntoView()">
+Open My Surprise 🎁
+</button>
 
 </div>
-
-<footer>
-Forever Yours ❤️<br>
-Arnab
-</footer>
-
-</div>
-
-</body>
